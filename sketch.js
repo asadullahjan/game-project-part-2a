@@ -1,136 +1,134 @@
+/*
 
+The Game Project
 
+2 - Game character
+
+Use p5 drawing functions such as rect, ellipse, line, triangle and
+point to draw the different states of your game character.
+
+Write the code so that your character appears inside the box for each
+state.
+
+IMPORTANT: For each box the variables gameChar_x & gameChar_y are set to the bottom
+center of the box. You must combine these variables with arithmetic to
+determine the position of each shape that you draw. This will later allow
+you to adjust the position of your game character.
+
+Each state is worth two marks:
+
+//standing front facing = 2
+//jumping facing forwards = 2
+//walking left = 2
+//walking right = 2
+//jumping left and jumping right = 2
+
+0 marks = not a reasonable attempt
+1 mark = attempted but it lacks detail and you didn't use gameChar_x and gameChar_y correctly
+2 marks = you've used a selction of shape functions and made consistent use of gameChar_x and gameChar_y
+
+WARNING: Do not get too carried away. If you're character takes more than 5 lines
+of code to draw then you've probably over done it.
+
+** Only submit your sketch.js **
+
+*/
+
+var gameChar_x = 0;
+var gameChar_y = 0;
 
 function setup()
 {
-	createCanvas(1024, 576);
-	
-	
-
-	tree = {
-		posX : 820,
-		Size : 1.5,
-		hight : 3
-	}
-
-	cloud = {
-		posX : 180 ,
-		posY : 100 ,
-		scale : 1.2
-	}
+	createCanvas(400, 600);
 }
 
 function draw()
 {
-	//fill the sky blue
-	background(48,25,52); 
+	background(255);
 
+	//Standing, facing frontwards
 
-
-	//1. a CLOUD in the SKY
-	//... add your code here
+	stroke(100);
+	noFill();
+	rect(20, 60, 50, 80);
 	noStroke();
-	fill(255);
-	ellipse(cloud.posX,
-			cloud.posY,
-			60*cloud.scale);
-	ellipse(cloud.posX+30*cloud.scale,
-			cloud.posY - 10,
-			60*cloud.scale,
-			80*cloud.scale);
-	ellipse(cloud.posX+60*cloud.scale,
-			cloud.posY -5 ,
-			50*cloud.scale,
-			60*cloud.scale);
-	ellipse(cloud.posX+90*cloud.scale,
-			cloud.posY,
-			50*cloud.scale);
+	fill(0);
+	text("1. standing front facing", 20, 160);
 
-
-
-	//2. a MOUNTAIN in the distance
-	//... add your code here
+	gameChar_x = 45;
+	gameChar_y = 137;
+	//Add your code here ...
+	fill(0,0,255);
+	ellipse(gameChar_x,gameChar_y-57,35);
+	strokeWeight(6);
+	stroke(0);
+	line(gameChar_x-12,gameChar_y-35,gameChar_x-20,gameChar_y-20);
 	noStroke();
-	fill(121,99,66);
-	triangle(550,256,450,432,650,432);
-	fill(255);
-	triangle(550,256,497,350,603,350);
+	strokeWeight(1);
+	rect(gameChar_x-12.25,gameChar_y-40,25,30);
 
-	
-	
-	//3. a TREE
-	//... add your code here
+	//Jumping facing forwards
+	stroke(100);
+	noFill();
+	rect(220, 60, 50, 80);
 	noStroke();
-	fill(128,113,83);
-	ellipse(tree.posX,
-			410,
-			40*tree.Size,
-			125*tree.hight);
-	fill(58, 95, 11 );
-	ellipse(tree.posX-40,
-			317-10*tree.hight,
-			70*tree.Size);
-	ellipse(tree.posX,
-			340-10*tree.hight,
-			70*tree.Size);
-	ellipse(tree.posX+40,
-			317-10*tree.hight,
-			70*tree.Size);
-	ellipse(tree.posX,
-			290-10*tree.hight,
-			70*tree.Size);
+	fill(0);
+	text("2. jumping facing forwards", 220, 160);
+
+	gameChar_x = 245;
+	gameChar_y = 137;
+	//Add your code here ...
 
 
-
-	//draw some GREEN GROUND
+	//Walking, turned left
+	stroke(100);
+	noFill();
+	rect(20, 260, 50, 80);
 	noStroke();
-	fill(0,155,0);
-	rect(0, 432, 1024, 144); 
+	fill(0);
+	text("3. Walking left", 20, 360);
+
+	gameChar_x = 45;
+	gameChar_y = 337;
+	//Add your code here ...
 
 
-
-	//4. a CANYON
-	//NB. the canyon should go from ground-level to the bottom of the screen
-	//... add your code here
+	//Walking, turned right
+	stroke(100);
+	noFill();
+	rect(220, 260, 50, 80);
 	noStroke();
-	fill(154,101,80);
-	beginShape();
-	vertex(100,432);
-	vertex(140,460);
-	vertex(100,575);
-	vertex(200,575);
-	vertex(240,460);
-	vertex(200,432);
-	endShape();
-	fill(255,0,0);
-	beginShape();
-	vertex(100,575);
-	vertex(115,560);
-	vertex(130,575);
-	vertex(145,560);
-	vertex(160,575);
-	vertex(175,560);
-	vertex(190,575);
-	endShape();
+	fill(0);
+	text("4. Walking right", 220, 360);
+
+	gameChar_x = 245;
+	gameChar_y = 337;
+	//Add your code here ...
 
 
-
-
-	//5. a COLLECTABLE TOKEN - eg. a jewel, fruit, coins
-	//... add your code here
-	strokeWeight(2);
-	stroke(0,255,0);
-	line(403,375,407,360);
+	//Jumping right
+	stroke(100);
+	noFill();
+	rect(20, 460, 50, 80);
 	noStroke();
-	fill(255,0,0);
-	ellipse(400,380,15,20);
-	ellipse(407,380,15,20);
+	fill(0);
+	text("5. Jumping to the right", 20, 560);
+
+	gameChar_x = 45;
+	gameChar_y = 537;
+	//Add your code here ...
 
 
-
-	//   //MOON//    //
+	//Jumping to the left
+	stroke(100);
+	noFill();
+	rect(220, 460, 50, 80);
 	noStroke();
-	fill(169,169,169);
-	ellipse(800,100,80);
-	
+	fill(0);
+	text("6. Jumping to the left", 220, 560);
+
+	gameChar_x = 245;
+	gameChar_y = 537;
+	//Add your code here ...
+
 }
